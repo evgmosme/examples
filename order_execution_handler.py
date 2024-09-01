@@ -11,7 +11,7 @@ import json
 from event_alpaca_fees import FillEvent
 import threading
 
-class AlpacaExecutionHandler:
+class OrderExecutionHandler:
     """
     Handles the execution of trading orders and real-time trade updates for a 
     list of financial symbols using the Alpaca API.
