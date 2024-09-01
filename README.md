@@ -1,4 +1,4 @@
-# Examples of my works
+# Examples of my code
 
 This repository contains select components of my currently deployed algorithmic trading system.
 
