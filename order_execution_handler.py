@@ -1,10 +1,6 @@
-from abc import ABCMeta, abstractmethod
 from datetime import datetime as dt
 import time
-try:
-    import Queue as queue
-except ImportError:
-    import queue
+import queue
 
 from event_alpaca_fees import FillEvent, OrderEvent
 import alpaca_trade_api as tradeapi
