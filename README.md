@@ -4,7 +4,7 @@ This repository contains select components of my currently deployed algorithmic 
 
 ## Algorithmic Trading System
 
-This trading system is designed to execute real-time algorithmic trading strategies using the Alpaca API. The system is architected around an event-driven framework, where different components such as data handlers, strategy engines, and execution handlers communicate through a centralized event queue. The system supports both live and backtesting modes, allowing for robust strategy development and testing in a production-like environment.
+This trading system is designed to execute real-time algorithmic trading strategies using the Alpaca API (US Broker). The system is architected around an event-driven framework, where different components such as data handlers, strategy engines, and execution handlers communicate through a centralized event queue. The system supports both live and backtesting modes, allowing for robust strategy development and testing in a production-like environment.
 
 ## RealTimeDataHandler
 
