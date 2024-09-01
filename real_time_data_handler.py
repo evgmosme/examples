@@ -1,12 +1,7 @@
-import os
-import select
 import numpy as np
 import pandas as pd
 from event import MarketEvent
 from datetime import datetime as dt, timedelta, timezone, time
-import sys
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import psycopg2
 import asyncio
 import time as t
 from alpaca_trade_api.rest import TimeFrame, TimeFrameUnit

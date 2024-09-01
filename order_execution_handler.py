@@ -1,18 +1,14 @@
 from datetime import datetime as dt
-import time
 import queue
-
-from event_alpaca_fees import FillEvent, OrderEvent
 import alpaca_trade_api as tradeapi
-from alpaca.data.historical.crypto import CryptoHistoricalDataClient, CryptoLatestTradeRequest
-
+from alpaca.data.historical.crypto import CryptoLatestTradeRequest
 import logging
 import concurrent.futures
 import nest_asyncio
 import asyncio
-import websockets 
+import websockets
 import json
-from event import MarketEvent
+from event_alpaca_fees import FillEvent
 import threading
 
 class AlpacaExecutionHandler:
