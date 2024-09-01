@@ -17,7 +17,7 @@ import alpaca_trade_api as tradeapi
 import threading
 import nest_asyncio
 import logging
-k
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 nest_asyncio.apply()
 
