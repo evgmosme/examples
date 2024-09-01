@@ -73,19 +73,6 @@ class RealTimeDataHandler:
       for cryptocurrency symbols, adjusted for 24/7 market data.
     - trading_schedule(self): Retrieves the trading calendar of the US stock market 
       to determine when the market is open and closed.
-    - update_bars(self): Main method to update bars; encapsulates the logic for 
-      fetching and processing new data.
-    - get_latest_bar(self, symbol): Retrieves the most recent bar for the specified symbol.
-    - get_latest_bars(self, symbol, N=1): Retrieves the last N bars for the specified symbol.
-    - get_latest_bar_value(self, symbol, val_type): Retrieves a specific value (e.g., close price) 
-      from the latest bar for the specified symbol.
-    - get_latest_bars_values(self, symbol, val_type, N=1): Retrieves the last N values of a 
-      specified type (e.g., close prices) for the symbol.
-    - get_latest_bar_datetime(self, symbol): Retrieves the datetime of the most recent bar 
-      for the specified symbol.
-    - set_portfolio(self, portfolio): Allows the data handler to update and interact with 
-      the portfolio object.
-
     """
     def __init__(self, events, symbol_list, strat_params_list, api=None, alpaca_credentials=None):
         logging.info('Initiating Data Handler')
@@ -337,61 +324,3 @@ class RealTimeDataHandler:
         ).dt.tz_localize('America/New_York').dt.tz_convert('UTC').dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         calendar_df['date'] = pd.to_datetime(calendar_df['date']) 
         return calendar_df
-
-    def update_bars(self):
-        # Main method to update bars; encapsulates the logic for fetching and processing new data
-        self.fetch_new_data()
-
-    def get_latest_bar(self, symbol):
-        # Retrieves the most recent bar for the specified symbol
-        try:
-            return self.latest_symbol_data[symbol].iloc[-1]
-        except KeyError:
-            logging.error(f"That symbol {symbol} is not available in the data set.")
-            raise
-        except IndexError:
-            logging.error(f"No data available for symbol {symbol}.")
-
-    def get_latest_bars(self, symbol, N=1):
-        # Retrieves the last N bars for the specified symbol
-        try:
-            return self.latest_symbol_data[symbol].iloc[-N:]
-        except KeyError:
-            logging.error(f"That symbol {symbol} is not available in the data set.")
-            raise
-        except IndexError:
-            logging.error(f"Not enough bars are available for symbol {symbol}.")
-
-    def get_latest_bar_value(self, symbol, val_type):
-         # Retrieves a specific value (e.g., close price) from the latest bar for the specified symbol
-        try:
-            return getattr(self.get_latest_bar(symbol), val_type)
-        except KeyError:
-            logging.error(f"That symbol {symbol} is not available in the data set.")
-            raise
-        except IndexError:
-            logging.error(f"No data available for symbol {symbol}.")
-
-    def get_latest_bars_values(self, symbol, val_type, N=1):
-        # Retrieves the last N values of a specified type (e.g., close prices) for the symbol
-        try:
-            return np.array(self.latest_symbol_data[symbol][val_type].tail(N))
-        except KeyError:
-            logging.error(f"That symbol {symbol} is not available in the data set.")
-            raise
-        except IndexError:
-            logging.error(f"Not enough data available to return {N} bars for symbol {symbol}.")
-
-    def get_latest_bar_datetime(self, symbol):
-        # Retrieves the datetime of the most recent bar for the specified symbol
-        try:
-            return self.latest_symbol_data[symbol].index[-1]
-        except KeyError:
-            logging.error(f"That symbol {symbol} is not available in the data set.")
-            raise
-        except IndexError:
-            logging.error(f"No data available for symbol {symbol}.")
-
-    def set_portfolio(self, portfolio):
-        # Allows the data handler to update and interact with the portfolio object
-        self.portfolio = portfolio
