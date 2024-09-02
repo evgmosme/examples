@@ -6,17 +6,17 @@ Here’s a brief overview of a trading system I've developed.
 
 This trading system is a sophisticated platform built for real-time, high-frequency trading. It’s designed with a strong, event-driven architecture that processes live market data, executes trades, and manages portfolios quickly and efficiently. The system’s main features include a data handler that streams and processes data in real-time, a strategy that generates trading signals based on statistical models, an execution handler that carries out trades through a broker's API, and a portfolio manager that adjusts trading positions based on the latest data. The system uses parallel processing to ensure it can respond to market changes instantly, making it highly scalable.
 
-## RealTimeDataHandler (real_time_data_handler.py)
+## RealTimeDataHandler (1.real_time_data_handler.py)
 This component of my trading system automates and manages real-time trading. It handles the streaming and processing of financial data for different symbols using the Alpaca API. The class ensures that live market data is collected efficiently and combined with recent historical data, allowing the system to make timely and accurate decisions. By running in a separate thread, it keeps the system responsive, allowing the trading strategy to react quickly to market changes. It also updates the portfolio with the latest market conditions and triggers events when enough data is gathered, helping the system to make informed trading decisions automatically.
 
-## OrderExecutionHandler (order_execution_handler.py)
+## OrderExecutionHandler (2.order_execution_handler.py)
 This class automates and manages the execution of trades in real-time using the Alpaca API. It ensures that different types of trading orders (market, limit, stop-limit) are executed accurately and efficiently without manual intervention. By managing real-time trade updates through a WebSocket connection, it processes trades as soon as they happen, keeping the trading strategy responsive to market conditions. The class also maintains reliability by automatically reconnecting to the trade stream if the connection drops and logs trade details for review and analysis, ensuring the system operates smoothly in a dynamic trading environment.
 
-## Cointegration Analysis Notebook (cointegrated_pairs.ipynb)
+## Cointegration Analysis Notebook (3.cointegrated_pairs.ipynb)
 This Jupyter notebook is designed to identify stock pairs suitable for statistical arbitrage through efficient cointegration analysis. It helps in processing large financial datasets by filtering stocks based on specific criteria like price and volume, and then applying a test to find pairs with a stable, long-term relationship. By using multiprocessing and random sampling, the notebook significantly reduces the time needed to analyze large datasets, making it practical to identify cointegrated pairs for high-performance trading strategies.
 
-## Daily Data Pipeline (airflow_daily_data_pipeline.py)
+## Daily Data Pipeline (4.airflow_daily_data_pipeline.py)
 This script is implemented as an Apache Airflow DAG to automate the processing and analysis of financial market data using the Alpaca API. It fetches historical market data and trade quotes, stores them in a PostgreSQL database, and calculates key indicators like resistance levels. The pipeline also aggregates quote data into metrics such as average spread and volume imbalance. By managing these tasks in sequence and using parallel processing, the system efficiently handles large datasets, ensuring that clean, organized data is ready for use in trading strategies.
 
-## Machine Learning-Driven Trading Strategy Optimization (ml_strategy_optimization.ipynb)
+## Machine Learning-Driven Trading Strategy Optimization (5.ml_strategy_optimization.ipynb)
 In this notebook, I developed a machine learning model to optimize trading decisions by analyzing historical financial data. The model, built using Python, Scikit-Learn, and XGBoost, classifies trade opportunities based on technical indicators and fundamental metrics. Techniques like custom train-test splitting, feature selection, and managing class imbalance were crucial. The model improved trading performance by 26.51% compared to non-ML strategies while effectively addressing overfitting and data leakage concerns through careful design.
