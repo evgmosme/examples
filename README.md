@@ -22,9 +22,9 @@ This repository highlights key components of my software development work, showc
 
 ## Cointegration Analysis Notebook
 
-**Problem:** Analyzing large datasets efficiently to extract meaningful insights, which is a common requirement across many fields.  
+**Problem:** Efficiently identifying statistically significant stock pairs for trading within a large dataset. 
 
-**Solution:** Designed a data analysis notebook that processes over 6,000 stock symbols to identify statistically significant relationships using random sampling and multiprocessing. This approach effectively balances computational efficiency with rigorous data analysis, demonstrating the ability to handle and analyze large-scale data across different contexts.
+**Solution:** Developed a script that filters over 6,000 stock symbols and applies the Cointegration Augmented Dickey-Fuller (CADF) test to random samples, identifying potentially profitable pairs. This approach balances computational efficiency with rigorous analysis
 
 ## Daily Data Pipelne
 
