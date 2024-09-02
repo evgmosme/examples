@@ -17,3 +17,6 @@ This Jupyter notebook is designed to identify stock pairs suitable for statistic
 
 ## Daily Data Pipeline (airflow_daily_data_pipeline.py)
 This script is implemented as an Apache Airflow DAG to automate the processing and analysis of financial market data using the Alpaca API. It fetches historical market data and trade quotes, stores them in a PostgreSQL database, and calculates key indicators like resistance levels. The pipeline also aggregates quote data into metrics such as average spread and volume imbalance. By managing these tasks in sequence and using parallel processing, the system efficiently handles large datasets, ensuring that clean, organized data is ready for use in trading strategies.
+
+## Machine Learning-Driven Trading Strategy Optimization (ml_strategy_optimization.ipynb)
+In this notebook, I developed a machine learning model to optimize trading decisions by analyzing historical financial data. The model, built using Python, Scikit-Learn, and XGBoost, classifies trade opportunities based on technical indicators and fundamental metrics. Techniques like custom train-test splitting, feature selection, and managing class imbalance were crucial. The model improved trading performance by 26.51% compared to non-ML strategies while effectively addressing overfitting and data leakage concerns through careful design.
