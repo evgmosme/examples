@@ -1,6 +1,6 @@
 # Examples of My Code
 
-This repository highlights key components of my software development work, showcasing expertise in real-time data processing, system optimization, and managing large-scale datasets.
+This repository highlights key components of my software development and data anlytics works, showcasing expertise in real-time data processing, system optimization, and managing large-scale datasets.
 
 ## High-Performance Trading System
 
