@@ -4,7 +4,7 @@ This repository highlights key components of my software development and data an
 
 ## High-Performance Trading System
 
-**Problem:** Developing a system that can process real-time data and execute transactions with minimal latency is crucial in high-frequency environments, but these principles apply to any system requiring real-time processing and low-latency operations. 
+**Problem:** Building a system that can efficiently execute real-time trading strategies requires a robust architecture capable of handling live data streams and processing transactions within milliseconds. 
 
 **Solution:** Built an event-driven framework where different modules communicate through a centralized event queue, allowing the system to process live data streams and execute transactions within 5 milliseconds. This approach demonstrates strong skills in designing scalable, high-performance systems.
 
