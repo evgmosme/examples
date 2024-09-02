@@ -4,7 +4,7 @@ This repository showcases critical components of my current algorithmic trading 
 
 ## Algorithmic Trading System
 
-**Problem:** Executing real-time algorithmic trading strategies efficiently requires a robust architecture to handle live data and quickly submit orders. 
+**Problem:** Executing real-time algorithmic trading strategies efficiently requires a robust architecture to handle live data and quickly submit orders.  
 **Solution:** The system is built on an event-driven framework where data handlers, strategy engines, and execution handlers communicate through a centralized event queue. This design enables the processing of live data and the submission of orders to the broker in approximately 5 milliseconds, ensuring quick and accurate trade execution.
 
 ## RealTimeDataHandler
