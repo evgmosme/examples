@@ -41,33 +41,6 @@ class RealTimeDataHandler:
     - base_url (str): Base URL for the Alpaca API.
     - retention_period (timedelta): Time duration for which the data is retained.
     - portfolio (Portfolio): The portfolio object that is updated based on the latest market data.
-
-    Methods:
-    - __init__(self, events, symbol_list, strat_params_list, api=None, alpaca_credentials=None): 
-      Initializes the data handler with the necessary parameters like the event queue, 
-      symbol list, and Alpaca API credentials.
-    - trade_callback(self, trade): Handles incoming trade data, updating the internal 
-      DataFrame with the latest trade information asynchronously.
-    - apply_retention_policy(self): Retains only the most recent data based on a 
-      retention period to ensure memory efficiency.
-    - stream_data(self): Initiates the data stream and subscribes to trade updates 
-      for the symbols in the list asynchronously.
-    - _run_coroutine_in_thread(self, coroutine): Runs an asynchronous coroutine in a 
-      separate thread to prevent blocking the main thread.
-    - initialize_stream(self): Ensures that the data stream is initialized only once, s
-      tarting it in a separate thread to avoid blocking.
-    - fetch_new_data(self): Fetches the latest market data and updates the handler 
-      with new information, canceling any unfilled orders.
-    - _handle_sleep_until_next_minute(self): Calculates the sleep duration to align 
-      data fetching with the next minute mark.
-    - extract_latest_streamed_data(self): Extracts the latest data from the streamed data, 
-      pulling the most recent prices for analysis.
-    - fetch_minute_bars(self, symbols, current_minute): Fetches minute bars for the given 
-      symbols and current minute, ensuring data is filtered and converted to UTC.
-    - fetch_minute_bars_crypto(self, symbols, current_minute): Fetches minute bars 
-      for cryptocurrency symbols, adjusted for 24/7 market data.
-    - trading_schedule(self): Retrieves the trading calendar of the US stock market 
-      to determine when the market is open and closed.
     """
     def __init__(self, events, symbol_list, strat_params_list, api=None, alpaca_credentials=None):
         logging.info('Initiating Data Handler')

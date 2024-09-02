@@ -42,36 +42,7 @@ class OrderExecutionHandler:
     has been initialized.
     - trade_logger (TradeLogger): Optional logger for recording trade details, 
     used for auditing and analysis.
-
-    Methods:
-    - initialize_trade_stream(): Initializes the WebSocket connection for 
-    receiving real-time trade updates, ensuring it's only done once.
-    - _start_trade_stream_thread(): Starts the asynchronous trade update stream 
-    in a separate thread to keep the main thread responsive.
-    - stream_trade_updates(): Continuously listens for trade updates over 
-    WebSocket, processing each update as it is received.
-    - trade_callback(trade): Processes incoming trade updates, handling filled 
-    or partially filled orders and generating fill events.
-    - execute_order(event): Main entry point for executing orders based on incoming order events.
-    - _execute_order(event): Internal method that handles the specific logic for 
-    executing different types of orders.
-    - _place_order_Limit(order_event, limit_price): Places a limit order on 
-    Alpaca.
-    - _place_order_FOK_Limit(order_event, limit_price): Places a Fill-Or-Kill 
-    limit order on Alpaca.
-    - _place_order_Stop_Limit(order_event, stop_price, limit_price): Places a 
-    Stop-Limit order on Alpaca.
-    - _place_order_IOK_Stop_Limit(order_event, stop_price, limit_price): Places 
-    an Immediate-Or-Cancel Stop-Limit order on Alpaca.
-    - _place_order_Market(order_event): Places a market order on Alpaca.
-    - _get_real_time_price(symbol): Fetches the real-time price of a given symbol 
-    using Alpaca's market data API.
-    - _get_real_time_price_cypto(symbol): Fetches the real-time price of a 
-    cryptocurrency symbol using Alpaca's crypto data API.
-    - _run_coroutine_in_thread(coroutine): Runs an asyncio coroutine in a 
-    separate thread to prevent blocking the main thread.
     """
-
     def __init__(
         self, events, data_handler, alpaca_credentials, 
         portfolio, symbol_list, api=None, trade_logger=None
