@@ -1,6 +1,6 @@
 # Examples of my code
 
-This repository contains select components of my currently deployed algorithmic trading system.
+This repository contains select components of my current algorithmic trading system.
 
 ## Algorithmic Trading System
 
